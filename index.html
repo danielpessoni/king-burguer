@@ -6,11 +6,54 @@
     <title>King Burguer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Titan+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1&family=Open+Sans:wght@400;700;800&family=Titan+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    
+    <header class="site-header">
+        <div class="announcement-bar">
+            <p>ATENÇÃO! Descontos e cupons promocionais só podem ser obtidos em nossos canais oficiais.</p>
+        </div>
+
+        <nav class="main-navigation" aria-label="Navegação principal">
+            <div class="navigation-container">
+                <a class="brand" href="#inicio" aria-label="King Burguer - início">
+                    <span class="brand-icon material-symbols-outlined" aria-hidden="true">restaurant</span>
+                    <span class="brand-name"><span>King</span><span>Burguer</span></span>
+                </a>
+
+                <div class="desktop-links">
+                    <a href="#menu">Menu</a>
+                    <a href="#promocoes">Promoções</a>
+                    <a href="#kids-menu">Kids Menu</a>
+                    <a href="#app">App</a>
+                </div>
+
+                <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="menu-overlay" data-menu-overlay></div>
+        <aside class="mobile-drawer" id="mobile-menu" aria-label="Menu mobile" aria-hidden="true">
+            <div class="drawer-header">
+                <span class="drawer-title">Navegação</span>
+                <button class="drawer-close" type="button" aria-label="Fechar menu">
+                    <span class="material-symbols-outlined" aria-hidden="true">close</span>
+                </button>
+            </div>
+            <nav class="mobile-links" aria-label="Navegação mobile">
+                <a href="#menu">Menu</a>
+                <a href="#promocoes">Promoções</a>
+                <a href="#kids-menu">Kids Menu</a>
+                <a href="#app">App</a>
+            </nav>
+        </aside>
+    </header>
+
 
     <script src="js/main.js"></script>
 </body>
