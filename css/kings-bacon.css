@@ -1,0 +1,242 @@
+/* ==========================================================================
+   Seção The Kings Bacon
+   ========================================================================== */
+
+.kings-bacon {
+    position: relative;
+    width: 100%;
+    padding: clamp(64px, 8vw, 120px) 24px clamp(80px, 10vw, 140px);
+    background-color: var(--color-cream);
+    color: var(--color-brown);
+    overflow: hidden;
+}
+
+.kings-bacon-container {
+    width: min(100%, var(--container-width));
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   Cabeçalho da Seção
+   -------------------------------------------------------------------------- */
+
+.kings-bacon-header {
+    text-align: center;
+    margin-bottom: clamp(24px, 3.5vw, 48px);
+    position: relative;
+    z-index: 1;
+}
+
+.kings-bacon-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 6.5vw, 5.5rem);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    color: var(--color-brown);
+    text-transform: uppercase;
+}
+
+.kings-bacon-subtitle {
+    margin: 6px 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.5vw, 2.25rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    color: var(--color-red);
+    text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Grid de Produtos (3 Colunas)
+   -------------------------------------------------------------------------- */
+
+.kings-bacon-grid {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(12px, 2vw, 24px);
+    width: min(100%, 1140px);
+    margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Cards
+   -------------------------------------------------------------------------- */
+
+.kings-bacon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: none;
+    background: transparent;
+    transition: transform var(--transition);
+}
+
+.kings-bacon-card-label {
+    display: block;
+    margin-bottom: 12px;
+    font-family: var(--font-body);
+    font-size: clamp(0.6875rem, 1vw, 0.8125rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    color: var(--color-brown);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.kings-bacon-card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    background-color: #0b0b0b;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(80, 35, 20, 0.12);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.kings-bacon-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    transition: transform 320ms ease;
+}
+
+.kings-bacon-card:hover .kings-bacon-card-image {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(80, 35, 20, 0.2);
+}
+
+.kings-bacon-card:hover .kings-bacon-card-image img {
+    transform: scale(1.04);
+}
+
+/* --------------------------------------------------------------------------
+   Hierarquia Visual dos Cards (Desktop)
+   -------------------------------------------------------------------------- */
+
+/* Cards Laterais */
+.kings-bacon-card--side {
+    flex: 1 1 280px;
+    max-width: 320px;
+    z-index: 1;
+}
+
+/* Card Central em Destaque */
+.kings-bacon-card--featured {
+    flex: 1.35 1 380px;
+    max-width: 440px;
+    z-index: 3;
+}
+
+.kings-bacon-card--featured .kings-bacon-card-label {
+    font-size: clamp(0.75rem, 1.15vw, 0.875rem);
+    letter-spacing: 0.1em;
+}
+
+.kings-bacon-card--featured .kings-bacon-card-image {
+    border-radius: 20px;
+    box-shadow: 0 18px 38px rgba(80, 35, 20, 0.18);
+}
+
+.kings-bacon-card--featured:hover .kings-bacon-card-image {
+    transform: translateY(-8px);
+    box-shadow: 0 26px 52px rgba(80, 35, 20, 0.26);
+}
+
+/* --------------------------------------------------------------------------
+   Responsividade Mobile (max-width: 768px)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .kings-bacon {
+        padding: 56px 20px 72px;
+    }
+
+    .kings-bacon-header {
+        margin-bottom: 36px;
+    }
+
+    .kings-bacon-title {
+        font-size: clamp(2.5rem, 12vw, 3.5rem);
+    }
+
+    .kings-bacon-subtitle {
+        font-size: clamp(1.125rem, 5.5vw, 1.5rem);
+        margin-top: 4px;
+    }
+
+    .kings-bacon-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 36px;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .kings-bacon-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Card Central aparece primeiro no Mobile */
+    .kings-bacon-card--featured {
+        order: 1;
+        flex: none;
+        max-width: 100%;
+    }
+
+    .kings-bacon-card--chicken {
+        order: 2;
+        flex: none;
+        max-width: 100%;
+    }
+
+    .kings-bacon-card--bacon {
+        order: 3;
+        flex: none;
+        max-width: 100%;
+    }
+
+    .kings-bacon-card-label {
+        margin-bottom: 10px;
+        font-size: 0.8125rem;
+    }
+
+    .kings-bacon-card-image {
+        width: 100%;
+        border-radius: 16px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Acessibilidade: Redução de Movimento
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .kings-bacon-card,
+    .kings-bacon-card-image,
+    .kings-bacon-card-image img {
+        transition: none !important;
+    }
+
+    .kings-bacon-card:hover .kings-bacon-card-image {
+        transform: none !important;
+    }
+
+    .kings-bacon-card:hover .kings-bacon-card-image img {
+        transform: none !important;
+    }
+}
