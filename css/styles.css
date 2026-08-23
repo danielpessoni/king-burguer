@@ -1,5 +1,6 @@
 :root {
 	--color-yellow: #fbb900;
+	--color-golden: #c99400;
 	--color-red: #d62300;
 	--color-brown: #502314;
 	--color-cream: #f9f4ed;
@@ -22,7 +23,7 @@ html {
 body {
 	min-width: 320px;
 	margin: 0;
-	color: var(--color-brown);
+	/* color: var(--color-brown); */
 	background: var(--color-cream);
 	font-family: var(--font-body);
 }
@@ -287,6 +288,16 @@ button:focus-visible {
 	*,
 	*::before,
 	*::after {
-		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms;
+		animation-iteration-count: 1;
+		transition-duration: 0.01ms;
+		scroll-behavior: auto;
+	}
+
+	.desktop-links a,
+	.mobile-links a,
+	.menu-overlay,
+	.mobile-drawer {
+		transition: none;
 	}
 }
