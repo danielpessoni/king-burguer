@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1&family=Open+Sans:wght@400;700;800&family=Titan+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/hero-promo.css">
 </head>
+
 <body>
     <header class="site-header">
         <div class="announcement-bar">
@@ -54,7 +57,28 @@
         </aside>
     </header>
 
+    <main>
+        <section class="hero-promo" id="inicio" aria-labelledby="hero-promo-title">
+            <div class="hero-promo-content">
+                <span class="hero-promo-badge">Nova promoção</span>
+                <h1 id="hero-promo-title"><span>KB Ninja</span><strong>Chegou!</strong></h1>
+                <p>Nosso novo combo especial com brinde exclusivo<br class="hero-promo-break"> das <em>Tartarugas Ninja</em>!</p>
+                <a class="hero-promo-cta" href="#menu">Quero meu combo!</a>
+            </div>
+
+            <div class="hero-promo-visual">
+                <img src="public/images/hero-burguer-gif.gif" alt="Combo KB Ninja com hambúrguer, batatas e brinde das Tartarugas Ninja">
+            </div>
+
+            <a class="hero-promo-scroll" href="#menu" aria-label="Ir para o menu">
+                <span>Confira mais</span>
+                <img src="public/images/scroll-chevron.svg" alt="">
+            </a>
+        </section>
+    </main>
+
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
