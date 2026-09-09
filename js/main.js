@@ -15,6 +15,45 @@ drawerClose?.addEventListener('click', () => setMenuState(false));
 menuOverlay?.addEventListener('click', () => setMenuState(false));
 mobileLinks.forEach((link) => link.addEventListener('click', () => setMenuState(false)));
 
+const menuFilters = document.querySelectorAll('[data-menu-filter]');
+const menuCards = document.querySelectorAll('[data-menu-card]');
+
+const toggleMenuCard = (card) => {
+	const isFlipped = card.classList.toggle('is-flipped');
+	card.setAttribute('aria-pressed', String(isFlipped));
+};
+
+menuCards.forEach((card) => {
+	card.addEventListener('click', () => toggleMenuCard(card));
+	card.addEventListener('keydown', (event) => {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			toggleMenuCard(card);
+		}
+	});
+});
+
+menuFilters.forEach((filter) => {
+	filter.addEventListener('click', () => {
+		const selectedCategory = filter.dataset.menuFilter;
+
+		menuFilters.forEach((item) => {
+			const isActive = item === filter;
+			item.classList.toggle('is-active', isActive);
+			item.setAttribute('aria-pressed', String(isActive));
+		});
+
+		menuCards.forEach((card) => {
+			const shouldShow = selectedCategory === 'todos' || card.dataset.category === selectedCategory;
+			card.hidden = !shouldShow;
+			if (!shouldShow) {
+				card.classList.remove('is-flipped');
+				card.setAttribute('aria-pressed', 'false');
+			}
+		});
+	});
+});
+
 const kidsSlides = document.querySelectorAll('[data-kids-slide]');
 const kidsDots = document.querySelectorAll('[data-kids-dot]');
 const kidsCarousel = document.querySelector('[data-kids-carousel]');

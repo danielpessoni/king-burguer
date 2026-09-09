@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/ingredients-showcase.css">
     <link rel="stylesheet" href="css/hmm-product.css">
     <link rel="stylesheet" href="css/kids-menu.css">
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 
 <body>
@@ -297,6 +298,113 @@
                 <button class="kids-menu-dot" type="button" data-kids-dot="1" aria-label="Ir para o slide 2" aria-current="false"></button>
             </div>
         </section>
+
+
+        <!-- Seção Nosso Menu -->
+        <section class="menu-section" id="menu" aria-labelledby="menu-section-title">
+            <div class="menu-section-container">
+                <header class="menu-section-header">
+                    <h2 id="menu-section-title">NOSSO MENU</h2>
+                    <p>Explore nossos deliciosos produtos</p>
+                </header>
+
+                <div class="menu-filters" role="group" aria-label="Filtrar produtos do menu">
+                    <button class="menu-filter is-active" type="button" data-menu-filter="todos" aria-pressed="true">TODOS</button>
+                    <button class="menu-filter" type="button" data-menu-filter="burgers" aria-pressed="false">BURGERS</button>
+                    <button class="menu-filter" type="button" data-menu-filter="bebidas" aria-pressed="false">BEBIDAS</button>
+                    <button class="menu-filter" type="button" data-menu-filter="acompanhamentos" aria-pressed="false">ACOMPANHAMENTOS</button>
+                </div>
+
+                <div class="menu-grid" data-menu-grid>
+                    <article class="menu-card" data-menu-card data-category="burgers" tabindex="0" role="button" aria-pressed="false" aria-label="Ver detalhes do King Duplo">
+                        <div class="menu-card-inner">
+                            <div class="menu-card-face menu-card-front">
+                                <img src="public/images/menu-king-duplo.png" alt="King Duplo" loading="lazy">
+                                <h3>King Duplo Cheddar</h3>
+                            </div>
+                            <div class="menu-card-face menu-card-back">
+                                <h3>King Duplo Cheddar</h3>
+                                <p>Dois hambúrgueres, queijo derretido e molho especial.</p>
+                                <strong>R$ 29,90</strong>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card" data-menu-card data-category="burgers" tabindex="0" role="button" aria-pressed="false" aria-label="Ver detalhes do King Chicken">
+                        <div class="menu-card-inner">
+                            <div class="menu-card-face menu-card-front">
+                                <img src="public/images/menu-king-chicken.png" alt="King Chicken" loading="lazy">
+                                <h3>King Chicken Crocante</h3>
+                            </div>
+                            <div class="menu-card-face menu-card-back">
+                                <h3>King Chicken Crocante</h3>
+                                <p>Frango crocante, queijo, alface e molho cremoso.</p>
+                                <strong>R$ 24,90</strong>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card" data-menu-card data-category="burgers" tabindex="0" role="button" aria-pressed="false" aria-label="Ver detalhes do King Bacon">
+                        <div class="menu-card-inner">
+                            <div class="menu-card-face menu-card-front">
+                                <img src="public/images/menu-bacon.png" alt="King Bacon" loading="lazy">
+                                <h3>King Bacon Crispy</h3>
+                            </div>
+                            <div class="menu-card-face menu-card-back">
+                                <h3>King Bacon Crispy</h3>
+                                <p>Carne grelhada, bacon crocante e cheddar especial.</p>
+                                <strong>R$ 27,90</strong>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card" data-menu-card data-category="acompanhamentos" tabindex="0" role="button" aria-pressed="false" aria-label="Ver detalhes da Batata Frita">
+                        <div class="menu-card-inner">
+                            <div class="menu-card-face menu-card-front">
+                                <img src="public/images/menu-batata-frita.png" alt="Batata frita crocante" loading="lazy">
+                                <h3>Batata Frita Dourada</h3>
+                            </div>
+                            <div class="menu-card-face menu-card-back">
+                                <h3>Batata Frita Dourada</h3>
+                                <p>Porção dourada, crocante e perfeita para acompanhar.</p>
+                                <strong>R$ 12,90</strong>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card" data-menu-card data-category="bebidas" tabindex="0" role="button" aria-pressed="false" aria-label="Ver detalhes do Refrigerante">
+                        <div class="menu-card-inner">
+                            <div class="menu-card-face menu-card-front">
+                                <img src="public/images/menu-refrigerante.png" alt="Refrigerante gelado" loading="lazy">
+                                <h3>Refrigerante Gelado</h3>
+                            </div>
+                            <div class="menu-card-face menu-card-back">
+                                <h3>Refrigerante Gelado</h3>
+                                <p>Refrescante e gelado para deixar seu combo completo.</p>
+                                <strong>R$ 8,90</strong>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="menu-card" data-menu-card data-category="acompanhamentos" tabindex="0" role="button" aria-pressed="false" aria-label="Ver detalhes dos Nuggets">
+                        <div class="menu-card-inner">
+                            <div class="menu-card-face menu-card-front">
+                                <img src="public/images/hmm-chicken-nuggets.png" alt="Nuggets de frango" loading="lazy">
+                                <h3>Porção de Nuggets</h3>
+                            </div>
+                            <div class="menu-card-face menu-card-back">
+                                <h3>Porção de Nuggets</h3>
+                                <p>Crocantes por fora, suculentos por dentro e feitos na hora.</p>
+                                <strong>R$ 15,90</strong>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+
     </main>
 
 
