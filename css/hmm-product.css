@@ -1,0 +1,198 @@
+.hmm-product {
+    position: relative;
+    overflow: hidden;
+    padding: 64px 16px 72px;
+    color: var(--color-white);
+    background-image:
+        radial-gradient(circle at 12% 70%, rgba(214, 35, 0, 0.24), transparent 42%),
+        radial-gradient(circle at 84% 18%, rgba(165, 22, 1, 0.22), transparent 40%),
+        linear-gradient(120deg, #070707 0%, #220807 42%, #d62300 100%);
+}
+
+.hmm-product::before {
+    position: absolute;
+    top: 12%;
+    right: 2%;
+    width: 0.55rem;
+    height: 0.55rem;
+    content: '';
+    background-color: rgba(251, 185, 0, 0.2);
+    border-radius: 50%;
+    box-shadow:
+        -13rem 7rem 0 0 rgba(251, 185, 0, 0.2),
+        -31rem 14rem 0 0 rgba(251, 185, 0, 0.2),
+        -48rem 3rem 0 0 rgba(251, 185, 0, 0.2),
+        -23rem 19rem 0 0 rgba(251, 185, 0, 0.2),
+        -60rem 10rem 0 0 rgba(251, 185, 0, 0.2);
+    pointer-events: none;
+}
+
+.hmm-product-container {
+    position: relative;
+    z-index: 1;
+    width: min(100%, var(--container-width));
+    margin: 0 auto;
+}
+
+.hmm-product-header {
+    margin-bottom: 64px;
+    text-align: center;
+}
+
+.hmm-product-header h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.05em;
+}
+
+.hmm-product-header p {
+    margin: 16px 0 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.35;
+}
+
+.hmm-product-content {
+    display: grid;
+    grid-template-columns: minmax(280px, 480px) minmax(0, 1fr);
+    gap: clamp(48px, 8vw, 80px);
+    align-items: center;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.hmm-product-visual {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.hmm-product-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hmm-product-details h3 {
+    margin: 0;
+    color: var(--color-yellow);
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.hmm-product-description {
+    max-width: 590px;
+    margin: 24px 0 40px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.125rem;
+    line-height: 1.55;
+}
+
+.hmm-product-badges {
+    display: grid;
+    grid-template-columns: repeat(3, 178px);
+    gap: 16px;
+}
+
+.hmm-product-badge {
+    min-width: 0;
+    height: 121px;
+    padding: 10px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    text-align: center;
+}
+
+.hmm-product-badge img {
+    display: block;
+    width: 42px;
+    height: 36px;
+    margin: 0 auto 2px;
+    object-fit: contain;
+}
+
+.hmm-product-badge h4 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.hmm-product-badge p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(0.72rem, 1.2vw, 0.83rem);
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+@media (max-width: 800px) {
+    .hmm-product {
+        padding-top: 48px;
+    }
+
+    .hmm-product-header {
+        margin-bottom: 40px;
+    }
+
+    .hmm-product-header p {
+        font-size: 1.25rem;
+    }
+
+    .hmm-product-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        max-width: 560px;
+    }
+
+    .hmm-product-description {
+        margin: 16px 0 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hmm-product {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .hmm-product-badges {
+        gap: 6px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .hmm-product-badge {
+        height: 121px;
+        padding: 10px 5px;
+    }
+
+    .hmm-product-badge h4 {
+        min-height: 48px;
+        font-size: 0.8rem;
+    }
+
+    .hmm-product-badge p {
+        font-size: 0.65rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hmm-product-visual img {
+        transition: none;
+    }
+}
