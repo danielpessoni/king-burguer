@@ -1,0 +1,251 @@
+.kids-menu {
+	position: relative;
+	min-height: 616px;
+	overflow: hidden;
+	background: linear-gradient(152deg, #00a859 0%, #004d2c 100%);
+}
+
+.kids-menu-viewport {
+	width: min(100% - 64px, 1152px);
+	min-height: 616px;
+	margin: 0 auto;
+	overflow: hidden;
+	touch-action: pan-y;
+}
+
+.kids-menu-track {
+	display: flex;
+	width: 200%;
+	min-height: 616px;
+	transition: transform 460ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kids-menu-slide {
+	display: flex;
+	position: relative;
+	flex: 0 0 50%;
+	min-height: 616px;
+	align-items: center;
+}
+
+.kids-menu-content {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	width: 576px;
+	height: 360px;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	padding-left: 48px;
+}
+
+.kids-menu-badge {
+	display: inline-block;
+	padding: 5px 20px;
+	color: var(--color-brown);
+	background: #FBB900;
+	border-radius: 8px;
+	font-family: var(--font-display);
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+.kids-menu h2 {
+	width: 576px;
+	height: 112px;
+	margin: 20px 0 12px;
+	color: rgba(255, 255, 255, 0.9);
+	font-family: var(--font-display);
+	font-size: 3.5rem;
+	font-weight: 400;
+	line-height: 1;
+}
+
+.kids-menu p {
+	width: 520px;
+	height: 54px;
+	margin: 0;
+	color: rgba(255, 255, 255, 0.82);
+	font-size: 1.125rem;
+	font-weight: 400;
+	line-height: 1.45;
+}
+
+.kids-menu-button {
+	display: inline-flex;
+	min-height: 46px;
+	align-items: center;
+	justify-content: center;
+	margin-top: 18px;
+	padding: 0 28px;
+	color: var(--color-white);
+	background: transparent;
+	border: 2px solid rgba(255, 255, 255, 0.9);
+	border-radius: 999px;
+	font-family: var(--font-display);
+	font-size: 1rem;
+	transition: transform var(--transition), background var(--transition);
+}
+
+.kids-menu-button:hover {
+	background: var(--color-white);
+	color: #004d2c;
+	transform: translateY(-3px);
+}
+
+.kids-menu-visual {
+	position: absolute;
+	top: 66px;
+	right: 48px;
+	width: 448px;
+	aspect-ratio: 1;
+	overflow: hidden;
+}
+
+.kids-menu-visual img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.kids-menu-arrow {
+	position: absolute;
+	top: 50%;
+	display: grid;
+	width: 45px;
+	height: 45px;
+	place-items: center;
+	padding: 0 0 5px;
+	color: var(--color-white);
+	background: rgba(255, 255, 255, 0.4);
+	border: 0;
+	border-radius: 50%;
+	cursor: pointer;
+	font-family: var(--font-body);
+	font-size: 2.4rem;
+	line-height: 1;
+	transform: translateY(-50%);
+	transition: background var(--transition), transform var(--transition);
+}
+
+.kids-menu-arrow:hover {
+	background: rgba(255, 255, 255, 0.62);
+	transform: translateY(-50%) scale(1.05);
+}
+
+.kids-menu-arrow--previous {
+	left: max(24px, calc(50% - 635px));
+}
+
+.kids-menu-arrow--next {
+	right: max(24px, calc(50% - 635px));
+}
+
+.kids-menu-dots {
+	position: absolute;
+	bottom: 26px;
+	left: 50%;
+	display: flex;
+	gap: 8px;
+	transform: translateX(-50%);
+}
+
+.kids-menu-dot {
+	width: 32px;
+	height: 6px;
+	padding: 0;
+	background: rgba(255, 255, 255, 0.4);
+	border: 0;
+	border-radius: 999px;
+	cursor: pointer;
+	transition: width var(--transition), background var(--transition);
+}
+
+.kids-menu-dot.is-active {
+	width: 56px;
+	background: #FBB900;
+}
+
+@media (max-width: 900px) {
+	.kids-menu,
+	.kids-menu-track,
+	.kids-menu-slide {
+		min-height: 771px;
+	}
+
+	.kids-menu {
+		overflow-x: hidden;
+	}
+
+	.kids-menu-viewport {
+		width: 100%;
+	}
+
+	.kids-menu-slide {
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	.kids-menu-content {
+		position: absolute;
+		top: 433px;
+		left: 0;
+		align-self: auto;
+		width: 100%;
+		height: auto;
+		padding: 0 48px;
+		text-align: center;
+		align-items: center;
+	}
+
+	.kids-menu-badge {
+		padding: 5px 20px;
+		font-size: 0.875rem;
+	}
+
+	.kids-menu h2 {
+		width: 100%;
+		height: auto;
+		margin: 17px 0 12px;
+		font-size: clamp(2rem, 7vw, 2.5rem);
+	}
+
+	.kids-menu p {
+		width: min(100%, 540px);
+		height: auto;
+		font-size: 1rem;
+	}
+
+	.kids-menu-button {
+		width: auto;
+		min-width: 216px;
+		margin-top: 16px;
+		font-size: 0.875rem;
+	}
+
+	.kids-menu-visual {
+		top: 19px;
+		right: auto;
+		left: 50%;
+		width: min(calc(100% - 48px), 384px);
+		transform: translateX(-50%);
+	}
+
+	.kids-menu-arrow {
+		display: none;
+	}
+
+	.kids-menu-dots {
+		bottom: 57px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.kids-menu-button,
+	.kids-menu-arrow,
+	.kids-menu-dot {
+		transition: none;
+	}
+}
