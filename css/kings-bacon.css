@@ -6,7 +6,7 @@
     position: relative;
     width: 100%;
     padding: clamp(64px, 8vw, 120px) 24px clamp(80px, 10vw, 140px);
-    background-color: var(--color-cream);
+    background-color: #f5ebdc;
     overflow: hidden;
 }
 
@@ -36,7 +36,7 @@
     font-weight: 400;
     line-height: 0.95;
     letter-spacing: 0.01em;
-     /* -> Cor personalizada */
+    /* -> Cor personalizada */
     /* color: var(--color-brown); */
     color: black;
     text-transform: uppercase;
@@ -49,7 +49,7 @@
     font-weight: 400;
     line-height: 1;
     letter-spacing: 0.16em;
-     /* -> Cor personalizada */
+    /* -> Cor personalizada */
     /* color: var(--color-red); */
     color: var(--color-golden);
     text-transform: uppercase;
@@ -87,13 +87,12 @@
 .kings-bacon-card-label {
     display: block;
     margin-bottom: 12px;
-    font-family: var(--font-body);
-    font-size: clamp(0.6875rem, 1vw, 0.8125rem);
+    font-family: var(--font-display);
+    font-size: clamp(0.8rem, 1.7vw, 1.1rem);
     font-weight: 800;
     letter-spacing: 0.08em;
     line-height: 1.2;
-     /* -> Cor personalizada */
-    /* color: var(--color-brown); */
+    color: #1a120b;
     text-transform: uppercase;
     white-space: nowrap;
 }

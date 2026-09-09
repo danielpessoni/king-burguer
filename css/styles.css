@@ -23,7 +23,7 @@ html {
 body {
 	min-width: 320px;
 	margin: 0;
-	/* color: var(--color-brown); */
+	color: var(--color-brown);
 	background: var(--color-cream);
 	font-family: var(--font-body);
 }
