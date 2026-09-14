@@ -7,7 +7,7 @@
 .hero-promo {
     position: relative;
     display: grid;
-    min-height: calc(100vh - 76px);
+    min-height: calc(100vh - 84px);
     grid-template-columns: minmax(0, 1fr) minmax(420px, 1fr);
     align-items: center;
     overflow: hidden;

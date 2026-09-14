@@ -20,6 +20,10 @@ html {
 	scroll-behavior: smooth;
 }
 
+section[id] {
+	scroll-margin-top: 56px;
+}
+
 body {
 	min-width: 320px;
 	margin: 0;
@@ -48,13 +52,26 @@ button:focus-visible {
 	outline-offset: 4px;
 }
 
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+}
+
 .announcement-bar {
 	display: flex;
+	max-height: 50px;
 	min-height: 20px;
 	align-items: center;
 	justify-content: center;
 	padding: 3px 16px;
 	background: var(--color-yellow);
+	overflow: hidden;
+	transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+	            min-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+	            padding 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+	            opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .announcement-bar p {
@@ -71,31 +88,40 @@ button:focus-visible {
 .main-navigation {
 	position: relative;
 	z-index: 10;
-	min-height: 56px;
-	background: var(--color-cream);
+	min-height: 64px;
+	background: rgba(249, 244, 237, 0.96);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
 	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.03), 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+	transition: min-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+	            background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+	            box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigation-container {
 	position: relative;
 	display: flex;
 	width: min(100% - 32px, var(--container-width));
-	min-height: 56px;
+	min-height: 64px;
 	align-items: center;
 	justify-content: space-between;
 	margin: 0 auto;
+	transition: min-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .brand {
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
+	transition: gap 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .brand-icon {
 	color: var(--color-red);
 	font-size: 28px;
 	transform: rotate(-12deg);
+	transition: font-size 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+	            transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .brand-name {
@@ -105,6 +131,7 @@ button:focus-visible {
 	font-size: 1.125rem;
 	line-height: 1;
 	text-transform: uppercase;
+	transition: font-size 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .brand-name span:first-child {
@@ -122,6 +149,7 @@ button:focus-visible {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
+	transition: gap 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .desktop-links a,
@@ -130,7 +158,9 @@ button:focus-visible {
 	font-weight: 800;
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
-	transition: color var(--transition);
+	transition: color var(--transition),
+	            font-size 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+	            letter-spacing 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .desktop-links a:hover,
@@ -146,6 +176,9 @@ button:focus-visible {
 	border: 0;
 	background: transparent;
 	cursor: pointer;
+	transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+	            height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+	            padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-toggle span {
@@ -154,6 +187,64 @@ button:focus-visible {
 	margin: 4px 0;
 	border-radius: 2px;
 	background: var(--color-red);
+	transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+	            margin 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Estado Encolhido do Menu (ao rolar a página / shrink on scroll)
+   ========================================================================== */
+
+.site-header.is-scrolled .announcement-bar {
+	max-height: 0;
+	min-height: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.site-header.is-scrolled .main-navigation {
+	min-height: 48px;
+	background: rgba(249, 244, 237, 0.98);
+	box-shadow: 0 4px 20px -2px rgba(80, 35, 20, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.06);
+}
+
+.site-header.is-scrolled .navigation-container {
+	min-height: 48px;
+}
+
+.site-header.is-scrolled .brand {
+	gap: 6px;
+}
+
+.site-header.is-scrolled .brand-icon {
+	font-size: 22px;
+	transform: rotate(-12deg) scale(0.9);
+}
+
+.site-header.is-scrolled .brand-name {
+	font-size: 0.9375rem;
+}
+
+.site-header.is-scrolled .desktop-links {
+	gap: clamp(18px, 2.8vw, 48px);
+}
+
+.site-header.is-scrolled .desktop-links a {
+	font-size: 0.6875rem;
+	letter-spacing: 0.03em;
+}
+
+.site-header.is-scrolled .menu-toggle {
+	width: 36px;
+	height: 36px;
+	padding: 7px 5px;
+}
+
+.site-header.is-scrolled .menu-toggle span {
+	height: 2.5px;
+	margin: 3px 0;
 }
 
 .menu-overlay,
@@ -294,10 +385,20 @@ button:focus-visible {
 		scroll-behavior: auto;
 	}
 
+	.site-header,
+	.announcement-bar,
+	.main-navigation,
+	.navigation-container,
+	.brand,
+	.brand-icon,
+	.brand-name,
+	.desktop-links,
 	.desktop-links a,
 	.mobile-links a,
+	.menu-toggle,
+	.menu-toggle span,
 	.menu-overlay,
 	.mobile-drawer {
-		transition: none;
+		transition: none !important;
 	}
 }
