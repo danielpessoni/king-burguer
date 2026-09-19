@@ -56,6 +56,88 @@
 }
 
 /* --------------------------------------------------------------------------
+   Animação de Entrada
+   -------------------------------------------------------------------------- */
+
+.kings-bacon-title.is-visible {
+    animation: kings-title-enter 780ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.kings-bacon-subtitle.is-visible {
+    animation: kings-subtitle-enter 900ms 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.kings-bacon-card--chicken.is-visible {
+    animation: kings-card-left-enter 800ms 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.kings-bacon-card--duplo.is-visible {
+    animation: kings-card-fade 800ms 680ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.kings-bacon-card--bacon.is-visible {
+    animation: kings-card-right-enter 800ms 940ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes kings-title-enter {
+    from {
+        opacity: 0;
+        transform: translateY(36px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes kings-subtitle-enter {
+    from {
+        opacity: 0;
+        transform: translateY(42px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes kings-card-left-enter {
+    from {
+        opacity: 0;
+        transform: translateX(-56px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes kings-card-fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes kings-card-right-enter {
+    from {
+        opacity: 0;
+        transform: translateX(56px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --------------------------------------------------------------------------
    Grid de Produtos (3 Colunas)
    -------------------------------------------------------------------------- */
 
@@ -239,6 +321,12 @@
    -------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
+    .kings-bacon-title.is-visible,
+    .kings-bacon-subtitle.is-visible,
+    .kings-bacon-card.is-visible {
+        animation: none;
+    }
+
     .kings-bacon-card,
     .kings-bacon-card-image,
     .kings-bacon-card-image img {
