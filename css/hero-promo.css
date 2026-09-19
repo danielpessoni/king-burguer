@@ -23,6 +23,10 @@
     margin-left: 24px;
 }
 
+.hero-promo.is-ready .hero-promo-content {
+    animation: hero-promo-content-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .hero-promo-badge {
     display: inline-flex;
     min-height: 44px;
@@ -85,13 +89,15 @@
     color: var(--hero-green);
     font-family: var(--font-display);
     font-size: 1.25rem;
+    animation: hero-promo-cta-pulse 2.4s ease-in-out infinite;
     transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
 
 .hero-promo-cta:hover {
     background: var(--hero-green);
     color: var(--hero-white);
-    transform: translateY(-2px);
+    animation-play-state: paused;
+    transform: translateY(-2px) scale(1.03);
 }
 
 .hero-promo-visual {
@@ -100,6 +106,10 @@
     width: min(100%, 576px);
     place-items: center;
     justify-self: end;
+}
+
+.hero-promo.is-ready .hero-promo-visual {
+    animation: hero-promo-visual-enter 800ms 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-promo-visual::after {
@@ -142,6 +152,53 @@
 .hero-promo-scroll img {
     width: 24px;
     height: 28px;
+    animation: hero-promo-scroll-bounce 1.4s ease-in-out infinite;
+}
+
+@keyframes hero-promo-content-enter {
+    from {
+        opacity: 0;
+        transform: translate3d(-48px, 0, 0) scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes hero-promo-visual-enter {
+    from {
+        opacity: 0;
+        transform: translate3d(48px, 0, 0) scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes hero-promo-cta-pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.045);
+    }
+}
+
+@keyframes hero-promo-scroll-bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
 }
 
 @media (max-width: 800px) {
@@ -200,7 +257,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-promo-cta {
+    .hero-promo-content,
+    .hero-promo-visual,
+    .hero-promo-cta,
+    .hero-promo-scroll img {
+        animation: none;
         transition: none;
     }
 }
