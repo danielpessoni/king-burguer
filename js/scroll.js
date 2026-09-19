@@ -12,3 +12,14 @@ navigationLinks.forEach((link) => {
 		history.pushState(null, '', targetId);
 	});
 });
+
+// Rolagem suave do botão de promoções
+const heroPromoScroll = document.querySelector('.hero-promo-scroll');
+const promotionsSection = document.querySelector('#promocoes');
+
+heroPromoScroll?.addEventListener('click', (event) => {
+	if (!promotionsSection) return;
+
+	event.preventDefault();
+	promotionsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
