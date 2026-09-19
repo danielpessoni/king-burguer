@@ -41,6 +41,10 @@
     text-transform: uppercase;
 }
 
+.hero-promo.is-ready .hero-promo-badge {
+    animation: hero-promo-badge-bounce 850ms 100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .hero-promo h1 {
     margin: 24px 0 16px;
     font-family: var(--font-display);
@@ -149,6 +153,10 @@
     transform: translateX(-50%);
 }
 
+.hero-promo.is-ready .hero-promo-scroll {
+    animation: hero-promo-scroll-enter 700ms 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .hero-promo-scroll img {
     width: 24px;
     height: 28px;
@@ -164,6 +172,32 @@
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes hero-promo-badge-bounce {
+    0% {
+        transform: scale(1.32);
+    }
+
+    18% {
+        transform: scale(1.32);
+    }
+
+    46% {
+        transform: scale(0.88);
+    }
+
+    66% {
+        transform: scale(1.1);
+    }
+
+    84% {
+        transform: scale(0.96);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
 
@@ -198,6 +232,18 @@
 
     50% {
         transform: translateY(8px);
+    }
+}
+
+@keyframes hero-promo-scroll-enter {
+    from {
+        opacity: 0;
+        transform: translate3d(-50%, 24px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
@@ -258,8 +304,10 @@
 
 @media (prefers-reduced-motion: reduce) {
     .hero-promo-content,
+    .hero-promo-badge,
     .hero-promo-visual,
     .hero-promo-cta,
+    .hero-promo-scroll,
     .hero-promo-scroll img {
         animation: none;
         transition: none;
