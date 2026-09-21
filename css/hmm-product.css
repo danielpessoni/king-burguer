@@ -48,6 +48,99 @@
     letter-spacing: -0.05em;
 }
 
+.hmm-product.is-observed .hmm-product-header h2,
+.hmm-product.is-observed .hmm-product-header p,
+.hmm-product.is-observed .hmm-product-visual img,
+.hmm-product.is-observed .hmm-product-details {
+    opacity: 0;
+}
+
+.hmm-product.is-observed .hmm-product-header h2,
+.hmm-product.is-observed .hmm-product-header p {
+    transform: translateY(36px);
+}
+
+.hmm-product.is-observed .hmm-product-visual img {
+    transform: translateY(24px) scale(0.86);
+}
+
+.hmm-product.is-observed .hmm-product-details {
+    transform: translateX(56px);
+}
+
+.hmm-product.is-observed .hmm-product-header h2.is-visible {
+    animation: hmm-title-enter 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hmm-product.is-observed .hmm-product-header p.is-visible {
+    animation: hmm-subtitle-enter 760ms 140ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hmm-product.is-observed .hmm-product-visual img.is-visible {
+    animation: hmm-nuggets-enter 900ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hmm-product.is-observed .hmm-product-details.is-visible {
+    animation: hmm-details-enter 820ms 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hmm-title-enter {
+    from {
+        opacity: 0;
+        transform: translateY(36px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hmm-subtitle-enter {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hmm-nuggets-enter {
+    0% {
+        opacity: 0;
+        transform: translateY(24px) scale(0.86);
+    }
+
+    55% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.04);
+    }
+
+    78% {
+        transform: translateY(3px) scale(0.99);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes hmm-details-enter {
+    from {
+        opacity: 0;
+        transform: translateX(56px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .hmm-product-header p {
     margin: 16px 0 0;
     color: rgba(255, 255, 255, 0.8);
@@ -192,7 +285,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hmm-product-visual img {
-        transition: none;
+    .hmm-product.is-observed .hmm-product-header h2,
+    .hmm-product.is-observed .hmm-product-header p,
+    .hmm-product.is-observed .hmm-product-visual img,
+    .hmm-product.is-observed .hmm-product-details {
+        opacity: 1;
+        transform: none;
+        animation: none;
     }
 }
