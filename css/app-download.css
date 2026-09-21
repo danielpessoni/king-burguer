@@ -1,9 +1,21 @@
 .app-download {
+    position: relative;
     padding: 88px 16px 96px;
     color: var(--color-white);
     background-color: #32170d;
     background-image: radial-gradient(circle at 18% 50%, rgba(251, 185, 0, 0.12), transparent 34%), linear-gradient(115deg, #32170d 0%, #4a2414 100%);
     overflow: hidden;
+}
+
+.app-download.is-observed {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.app-download.is-observed.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .app-download-container {
@@ -27,10 +39,22 @@
     height: auto;
     filter: drop-shadow(0 24px 24px rgba(0, 0, 0, 0.2));
     border-radius: 2rem;
+    animation: app-phone-float 4.8s ease-in-out infinite;
 }
 
 .app-download-content {
     max-width: 590px;
+}
+
+.app-download-content.is-observed {
+    opacity: 0;
+    transform: translateX(36px);
+    transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.app-download-content.is-observed.is-visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .app-download-content h2 {
@@ -68,6 +92,37 @@
     transition: transform var(--transition), background-color var(--transition);
 }
 
+.app-store-button::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.28);
+    content: '';
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+}
+
+.app-store-button.is-rippling::after {
+    animation: app-ripple-expand 500ms ease-out forwards;
+}
+
+
+@keyframes app-ripple-expand {
+    0% {
+        opacity: 0.28;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    to {
+    opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
 .app-store-button:hover {
     background: #191919;
     transform: translateY(-2px);
@@ -75,6 +130,11 @@
 
 .app-download-icon {
     font-size: 30px;
+    animation: app-icon-float 3.2s ease-in-out infinite;
+}
+
+.app-store-button:nth-child(2) .app-download-icon {
+    animation-delay: 350ms;
 }
 
 .app-download-button-text {
@@ -91,6 +151,28 @@
 .app-download-button-text strong {
     font-size: 1.08rem;
     font-weight: 700;
+}
+
+@keyframes app-phone-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes app-icon-float {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-3px) rotate(-3deg);
+    }
 }
 
 @media (max-width: 700px) {
@@ -131,7 +213,24 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .app-download.is-observed {
+        transition: none;
+    }
+
+    .app-download-content.is-observed {
+        transition: none;
+    }
+
+    .app-download-visual img,
+    .app-download-icon {
+        animation: none;
+    }
+
     .app-store-button {
         transition: none;
+    }
+
+    .app-store-button.is-rippling::after {
+        animation: none;
     }
 }
