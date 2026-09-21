@@ -5,9 +5,11 @@
 	if (!appSection) return;
 
 	const appContent = appSection.querySelector('.app-download-content');
+	const appVisual = appSection.querySelector('.app-download-visual');
 
 	appSection.classList.add('is-observed');
 	appContent?.classList.add('is-observed');
+	appVisual?.classList.add('is-observed');
 
 	const revealAppSection = (entries, observer) => {
 		entries.forEach((entry) => {
@@ -39,6 +41,23 @@
 		});
 
 		appContentObserver.observe(appContent);
+	}
+
+	if (appVisual) {
+		const revealAppVisual = (entries, observer) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) return;
+
+				entry.target.classList.add('is-visible');
+				observer.unobserve(entry.target);
+			});
+		};
+
+		const appVisualObserver = new IntersectionObserver(revealAppVisual, {
+			threshold: 0.2
+		});
+
+		appVisualObserver.observe(appVisual);
 	}
 
 	appSection.querySelectorAll('.app-store-button').forEach((button) => {
