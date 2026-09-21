@@ -275,12 +275,15 @@
     }
 
     .hmm-product-badge h4 {
-        min-height: 48px;
-        font-size: 0.8rem;
+        min-height: 34px;
+        font-size: 0.82rem;
+        line-height: 1.05;
     }
 
     .hmm-product-badge p {
-        font-size: 0.65rem;
+        margin: 4px 0 0;
+        font-size: 0.75rem;
+        line-height: 1.25;
     }
 }
 
